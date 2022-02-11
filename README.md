@@ -1,24 +1,34 @@
-# README
+# どこでも工事サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+　全国の工事情報共有サイト
 
-Things you may want to cover:
+### サイトテーマ
+　工事情報の共有
 
-* Ruby version
+### テーマを選んだ理由
+　現場で働く職人さんや警備員だけでなく、ドライバーや、近隣の住民さんなども工事の状況を確認出来てクレームやトラブルを軽減できるサイトがあればいいな、
+　と考えこのテーマにしました。
 
-* System dependencies
+### ターゲットユーザー
+　主にドライバーの方。現場が住宅街の場合、近隣住民の方々にまでご利用頂きたいと考えてえおります。
 
-* Configuration
+### 主な利用シーン
+　ドライバーの方はお出かけ前等に予め工事箇所や工事状況を把握して頂くことにより、通行止め等を回避できるサイトになっております。
 
-* Database creation
+### 設計書
 
-* Database initialization
 
-* How to run the test suite
+### チャレンジ要素一覧
+　https://docs.google.com/spreadsheets/d/1RMHVBX7L_2-qoobhcA3Fg2D-1Jv8iZ5oT7bx0um3kpI/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS:Linux(CentOS)
+- 言語:HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク:Ruby on Rails
+- JSライブラリ:jQuery
+- IDE:Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記して下さい。
+- 使用しない場合は、使用素材の項目をREADMEから削除して下さい。
