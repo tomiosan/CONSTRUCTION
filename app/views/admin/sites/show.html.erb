@@ -1,0 +1,42 @@
+<h3 class="offset-1">現場詳細</h3>
+
+<div class="row offset-1 mt-5">
+  <div class="col-lg-7">
+
+    <div class="row">
+      <div class="col-5">工事名</div>
+      <div class="col-7"><%= @site.site_name %></div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-5">現場住所</div>
+      <div class="col-7"><%= @site.site_address %></div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-5">現場説明</div>
+      <div class="col-7"><%= @site.introduction %></div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-5">工事日</div>
+      <div class="col-7"><%= @site.day %></div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-5">工事ステータス</div>
+      <div class="col-7">
+        <%= if @site.site_status? %>
+         <div class="text_success"><strong>工事中</strong></div>
+        <% else %>
+         <div class="text_secondary"><strong>工事休止中</strong></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="text_center mt-4">
+      <%= link_to "編集する", edit_admin_site_path(@site), class: "btn btn-success" %>
+    </div>
+
+  </div>
+</div>

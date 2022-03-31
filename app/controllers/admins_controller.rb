@@ -1,26 +1,31 @@
 class AdminsController < ApplicationController
-
-  def new
-  end
-
   def index
+    @admin = current_admin
+    @admins = Admin.all
+    @sites = Site.all
+    @site = Site.new
   end
-
+  
   def show
+    @admin = Admin.find(params[:id])
+    @site = Site.new
   end
-
+  
   def edit
+    @admin = Admin.find(params[:id])
   end
-
-  def create
-  end
-
+  
   def update
+    @admin = Admin.find(params[:id])
+    if @admin.update(admin_params)
+      redirect_to admin_path
+    end
   end
-
-  def destroy
+  
+  private
+  
+  def admin_params
+    params.require(:admin).permit(:name, :postal_code, :address, :phone_number)
   end
-
-
-
+  
 end

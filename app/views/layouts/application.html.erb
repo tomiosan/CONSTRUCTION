@@ -4,12 +4,64 @@
     <title>CONSTRUCTION</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <div><%= link_to "どこでも工事", root_path %></div>
+
+          <% if admin_signed_in? %>
+           <p class="p-3 m-0 text_light">Welcome!!</p>
+          <% end %>
+
+          <button class="navbar-toggler menu-trigger" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+              <li>
+                <%= link_to "登録現場一覧", root_path, class:"fas fa-person-digging nav-link text-dark" %>
+              </li>
+              <li>
+                <%= link_to "マイページ", admins_path, class:"nav-link text-dark" %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark' do %>
+                <% end %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to "登録現場一覧", root_path, class:"fas fa-person-digging nav-link text-dark" %>
+              </li>
+              <li>
+                <%= link_to "企業様専用新規登録", new_admin_registration_path, class:"nav-link text-dark" %>
+              </li>
+              <li>
+                <%= link_to "企業様専用ログイン", new_admin_session_path, class:"nav-link text-dark" %>
+              </li>
+              <% end %>
+              </ul>
+          </div>
+
+        </div>
+      </nav>
+
+    </header>
+
+    <main style="margin-bottom:80px">
+      <div class="container p-3">
+        <p class="text-success"><%= notice %></p>
+        <p class="text-danger"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

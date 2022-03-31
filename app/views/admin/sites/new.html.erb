@@ -1,0 +1,40 @@
+<h3 class="offset-1">現場新規登録</h3>
+
+<div class="col-8 offset-2 mt-5">
+  <%= form_with model: @site, url: admin_sites_path, local: true do |f| %>
+
+   <div class="form-group row mt-3">
+     <div class="col-4"><%= f.label :工事名 %></div>
+     <div class="col-8"><%= f.text_field :site_name, placeholder: "工事名", class: "form_control" %></div>
+   </div>
+
+   <div class="form-group row mt-3">
+     <div class="col-4"><%= f.label :現場住所 %></div>
+     <div class="col-8"><%= f.text_field :site_address, placeholder: "現場の住所を入力して下さい", class: "form-control" %></div>
+   </div>
+
+   <div class="form-group row mt-3">
+     <div class="col-4"><%= f.label :現場説明 %></div>
+     <div class="col-8"><%= text_area :introduction, placeholder: "現場の詳細を入力して下さい", class: "form-control" %></div>
+   </div>
+
+   <div class="form-group row mt-3">
+     <div class="col-4"><%= f.label :工事日 %></div>
+     <div class="col-8"><%= date_field :day, class: "form-control" %></div>
+   </div>
+
+   <div class="form-group row mt-3">
+     <div class="col-4"><%= f.label :工事ステータス %></div>
+     <div class="col-8">
+       <%= f.radio_button :site_status, :true %>
+       <%= f.label :site_status, "工事中" %>
+       <%= f.radio_button :site_status, :false, class: "ml-3" %>
+       <%= f.lavel :site_status, "工事休止中" %>
+     </div>
+   </div>
+
+  <div class="text-center mt-4">
+    <%= f.submit "新規登録", class: "btn btn-success" %>
+  </div>
+  <% end %>
+</div>

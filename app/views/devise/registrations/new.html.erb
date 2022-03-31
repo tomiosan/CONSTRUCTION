@@ -1,29 +1,66 @@
-<h2>Sign up</h2>
+<h2>新規会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<% if resource.errors.any? %>
+ <div id="error_explanation">
+   <h2>
+     <%= I18n.t("errors.massages.not_saved",
+                count: resource.errors.count,
+                resource: resource.class.model_name.human.downcase) %>
+   </h2>
+   <ul>
+     <% resource.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+     <% end %>
+   </ul>
+ </div>
+ <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+ <%= form_with model: @admin, url: admin_registration_path, local: true do |f| %>
+  <div class="row form-group pt-3">
+    <div class="col-md-1"><%= f.label :name, "企業名" %></div>
+    <div class="col-md-3"><%= f.text_field :name, autofocus: true, class:"form-control" %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="row form-group">
+    <div class="col-md-3"><%= f.label :postal_code, "郵便番号" %></div>
+    <div class="col-md-8"><%= f.text_field :postal_code, class:"form_control" %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="row form-group">
+    <div class="col-md-3"><%= f.label :adress, "会社住所" %></div>
+    <div class="col-md-8"><%= f.text_field :adress, class:"form_control" %></div>
+  </div>
+  
+  <div class="row form-group">
+    <div class="col-md-3"><%= f.label :email, "メールアドレス" %></div>
+    <div class="col-md-8"><%= f.email_field :email, class:"form_control"%></div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row form-group">
+    <div class="col-md-3"><%= f.label :phone_number, "電話番号" %></div>
+    <div class="col-md-8"><%= f.text_field :phone_number, autocomplete: "phone_number", class:"form_control" %></div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="row form-group">
+    <div class="col-md-3">
+      <%= f.label :password, "パスワード" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %>
+    </div>
+    <div class="col-md-8"><%= f.password_field :@password, autocomplete: "new-password", class:"form_control" %></div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3"><%= f.label :password_confirmation, "パスワード（確認用）" %></div>
+    <div class="col-md-8"><%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form_control" %></div>
+  </div>
+
+  <div class="form-group offset-3">
+    <%= f.submit "新規登録", class:"btn btn-dark mt-3", style:"width:200px" %>
+  </div>
+
+  <% end %>
+
+  <h3 class="mt-5">既に登録済みの企業様</h3>
+  <p><%= link_to "こちら", new_admin_session_path %>からログインしてください。</p>

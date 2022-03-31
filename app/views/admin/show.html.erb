@@ -1,0 +1,33 @@
+<h3 class="ml-5 mb-5">マイページ</h3>
+
+ <div class="row">
+   <h5 class="font-weight-bold col-2 m-0 align-self-center">登録情報</h5>
+   <div class="col-5"><%= link_to "編集する", edit_admins_path, class:"btn btn-info" %></div>
+ </div>
+ 
+ <table class="table table-light col-md-8 mt-3">
+   <tr>
+     <td class="text-white bg-dark">会社名</td>
+     <td><%= @admin.name %></td>
+   </tr>
+   
+   <tr>
+     <td class="text-white bg-dark">郵便番号</td>
+     <td><%= @admin.postal_code %></td>
+   </tr>
+   
+   <tr>
+     <td class="text-white bg-dark">会社住所</td>
+     <td><%= @admin.address %></td>
+   </tr>
+   
+   <tr>
+     <td class="text-white bg-dark">電話番号</td>
+     <td><%= @admin.phone_number %></td>
+   </tr>
+   
+   <tr>
+     <td class="text-white bg-dark">メールアドレス</td>
+     <td><%= @admin.email %></td>
+   </tr>
+ </table>
