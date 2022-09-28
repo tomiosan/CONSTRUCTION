@@ -3,7 +3,6 @@ class Site < ApplicationRecord
 
     validates :site_name, presence: true
     validates :site_address, presence: true
-    validates :introduction, presence: true
-    validates :day, presence: true
+    validates :introduction, presence: false
     validates :site_status, inclusion: {in: [true, false]}
 end

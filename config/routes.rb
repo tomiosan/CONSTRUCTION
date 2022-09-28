@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   root to: 'sites#index'
 
   namespace :admin do
-    resources :sites, expect:[:destroy]
-    resources :admins
+    resources :sites
   end
 
-  resources :admins, only:[:index, :show]
+  resources :admins, only:[:show, :edit, :update]
+  post 'admins/:id' => 'admins#edit'
 
-  resources :sites, only:[:index, :show]
+  resources :sites
+
 end

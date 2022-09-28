@@ -1,0 +1,38 @@
+<h3>現場編集</h3>
+
+<%= form_with model: @site, local: true do |f| %>
+ <div class= "row form-group pt-3">
+   <div class= "col-3"><%= f.label :工事名 %></div>
+   <div class= "col-md-3"><%= f.text_field :site_name, autofocus: true, class: "form-control" %></div>
+ </div>
+
+ <div class= "row form-group">
+   <div class= "col-3"><%= f.label :現場住所 %></div>
+   <div class= "col-md-3"><%= f.text_field :site_address, class: "form-control" %></div>
+ </div>
+
+ <div class= "row form-group">
+   <div class= "col-3"><%= f.label :現場説明 %></div>
+   <div class= "col-md-3"><%= f.text_field :introduction, class: "form-control" %></div>
+ </div>
+
+ <div class= "row form-group">
+   <div class= "col-3"><%= f.label :工事日 %></div>
+   <div class= "col-md-3"><%= f.date_field :day, class: "form-control" %></div>
+ </div>
+
+ <div class= "form-group row mt-3">
+   <div class= "col-3"><%= f.label :工事ステータス %></div>
+   <div class= "col-md-3">
+     <%= f.radio_button :site_status, :true %>
+     <%= f.label :site_status, "工事中" %>
+     <%= f.radio_button :site_status, false, class: "ml-3" %>
+     <%= f.label :site_status, "工事休止中" %>
+   </div>
+ </div>
+
+ <div class= "row form-group offset-3 pt-3">
+  <%= f.submit "編集内容を保存", class:"btn btn-dark", style:"width:200px" %>
+ </div>
+
+ <% end %>

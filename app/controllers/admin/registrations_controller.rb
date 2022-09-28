@@ -38,7 +38,11 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   def after_sign_up_path_for(resource)
+    admin_path(resource)
+   end
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -51,9 +55,6 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    admin_path(resource)
-  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
@@ -62,9 +63,9 @@ class Admin::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,
-                                                       :posral_code,
+                                                       :postal_code,
                                                        :address,
-                                                       :phone_number,
+                                                       :phone_number
                                                       ])
   end
 end

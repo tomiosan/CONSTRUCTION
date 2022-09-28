@@ -1,3 +1,14 @@
-<div class="mt-3">
-  
-</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>現場住所</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sites.each do |site| %>
+    <tr>
+      <td><%= link_to site.site_address, admin_site_path(site.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

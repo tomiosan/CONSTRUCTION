@@ -73,3 +73,5 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'enum_help'
 
 gem 'ransack'
+
+gem 'bcrypt', '~> 3.1.7'

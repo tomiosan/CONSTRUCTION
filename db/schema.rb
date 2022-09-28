@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_103527) do
     t.integer "admin_id"
     t.string "site_name"
     t.string "site_address"
-    t.integer "introduction"
+    t.string "introduction"
     t.string "day"
     t.boolean "site_status", null: false
     t.datetime "created_at", null: false

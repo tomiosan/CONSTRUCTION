@@ -28,14 +28,13 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
               <li>
-                <%= link_to "登録現場一覧", root_path, class:"fas fa-person-digging nav-link text-dark" %>
+                <%= link_to "登録現場一覧", admin_sites_path, class:"fas fa-person-digging nav-link text-dark" %>
               </li>
               <li>
-                <%= link_to "マイページ", admins_path, class:"nav-link text-dark" %>
+                <%= link_to "マイページ", admin_path(current_admin), class:"nav-link text-dark" %>
               </li>
               <li>
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark' do %>
-                <% end %>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-dark' %>
               </li>
               <% else %>
               <li>

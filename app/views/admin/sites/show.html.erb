@@ -26,7 +26,7 @@
     <div class="row mt-3">
       <div class="col-5">工事ステータス</div>
       <div class="col-7">
-        <%= if @site.site_status? %>
+        <% if @site.site_status? %>
          <div class="text_success"><strong>工事中</strong></div>
         <% else %>
          <div class="text_secondary"><strong>工事休止中</strong></div>
@@ -36,6 +36,10 @@
 
     <div class="text_center mt-4">
       <%= link_to "編集する", edit_admin_site_path(@site), class: "btn btn-success" %>
+    </div>
+
+    <div class="text_center mt-4">
+      <%= link_to "削除する", site_path(@site), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-danger" %>
     </div>
 
   </div>

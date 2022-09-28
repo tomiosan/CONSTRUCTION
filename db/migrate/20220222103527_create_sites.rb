@@ -4,7 +4,7 @@ class CreateSites < ActiveRecord::Migration[5.2]
       t.integer :admin_id
       t.string :site_name
       t.string :site_address
-      t.integer :introduction
+      t.string :introduction
       t.string :day
       t.boolean :site_status, null: false, default: ""
 

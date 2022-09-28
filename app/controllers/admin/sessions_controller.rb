@@ -18,22 +18,10 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
+  #protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
-  def after_sign_up_path_for(resource)
-    admins_path(resource)
-  end
-
-  def configure_sign_up_params
-    device_parameter_sanitizer.permit(:sign_up, keys: [:name,
-                                                       :postal_code,
-                                                       :address,
-                                                       :phone_number
-                                                       ])
-  end
 end
