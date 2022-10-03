@@ -7,7 +7,7 @@
   <tbody>
     <% @sites.each do |site| %>
     <tr>
-      <td><%= link_to site.site_address, admin_site_path(site.id) %></td>
+      <td><%= link_to site.site_address, site_path(site.id) %></td>
     </tr>
     <% end %>
   </tbody>

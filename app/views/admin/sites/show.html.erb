@@ -34,13 +34,14 @@
       </div>
     </div>
 
-    <div class="text_center mt-4">
-      <%= link_to "編集する", edit_admin_site_path(@site), class: "btn btn-success" %>
-    </div>
-
-    <div class="text_center mt-4">
-      <%= link_to "削除する", site_path(@site), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-danger" %>
-    </div>
+    <% if @site.admin_id == current_admin.id %>
+     <div class="text_center mt-4">
+       <%= link_to "編集する", edit_admin_site_path(@site), class: "btn btn-success" %>
+     </div>
+     <div class="text_center mt-4">
+       <%= link_to "削除する", site_path(@site), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-danger" %>
+     </div>
+    <% end %>
 
   </div>
 </div>

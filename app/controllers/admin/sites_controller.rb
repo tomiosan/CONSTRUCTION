@@ -1,6 +1,5 @@
 class Admin::SitesController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :correct_admin, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_admin!, only: [:show]
 
   def index
     @sites = Site.all

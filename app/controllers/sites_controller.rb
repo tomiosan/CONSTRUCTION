@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :correct_admin, only: [:update, :destroy]
+
+  skip_before_action :authenticate_admin!, only: [:index, :show]
+  
 
   def index
     @admin = current_admin
