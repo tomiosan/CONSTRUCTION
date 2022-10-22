@@ -18,10 +18,6 @@
 
 ### 設計書
 
-
-### チャレンジ要素一覧
-　https://docs.google.com/spreadsheets/d/1RMHVBX7L_2-qoobhcA3Fg2D-1Jv8iZ5oT7bx0um3kpI/edit?usp=sharing
-
 ## 開発環境
 - OS:Linux(CentOS)
 - 言語:HTML,CSS,JavaScript,Ruby,SQL
